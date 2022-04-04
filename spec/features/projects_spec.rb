@@ -1,4 +1,11 @@
 require 'rails_helper'
+# project test 
+
+#RSpec.feature "Projects", type: :feature do
+#  pending "add some scenarios (or delete) #{__FILE__}"
+#end
+
+require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
   context "Create new project" do
