@@ -14,10 +14,9 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
   end
-
+  before_action :authenticate_user!
   # GET /projects/1/edit
   def edit
-    before_action :authenticate_user!
   end
 
   # POST /projects or /projects.json
