@@ -41,10 +41,6 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
@@ -61,7 +57,7 @@ SimpleCov.start 'rails' do
   add_filter '/db/'
   add_filter '/spec/' # for rspec
 
-  SimpleCov.start :rails do
+  #SimpleCov.start :rails do
     filters.clear # This will remove the :root_filter and :bundler_filter that come via simplecov's defaults
     add_filter do |src|
       !(src.filename =~ /^#{SimpleCov.root}/) unless src.filename =~ /my_engine/
