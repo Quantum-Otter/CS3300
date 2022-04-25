@@ -45,7 +45,8 @@ gem 'mini_racer'
 gem 'simplecov', require: false
 
 gem 'devise'
-
+gem 'bootstrap', '~> 4.6.1'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'sqlite3'

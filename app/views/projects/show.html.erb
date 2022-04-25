@@ -1,14 +1,49 @@
-<p id="notice"><%= notice %></p>
+<title> <%= @project.title%> </title>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<a class="navbar-brand" href="#">Navbar</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+    <%= link_to 'Home', projects_path, :class => 'btn btn-dark'%>
+      
+    </li>
+    <% if user_signed_in? %>
+    <li class="nav-item">
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-dark'  %>
+    </li>
+    <% else %>
+    <a class="nav-link" href="#">Sign up</a>
+    <a class="nav-link" href="#">Sign in</a>
+    <% end %>
+
+</nav>
+
+<main role="main">
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+<div class="container text-center">
+  <p>
+    <strong>Title:</strong>
+    <%= @project.title %>
+  </p>
+<div>
+  <div class="card mt-6">
+    <p>
+        <strong>Description:</strong>
+      <%= @project.description %>
+      </p>
+  <div>
+  <div class="container-fluid-nav text-center">
+  <a> <%= link_to 'Home', projects_path, :class => 'btn btn-primary'%> </a>
+  <a> <%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-warning' %> </a> 
+</div>
+
+      </div> <!-- /container -->
+      
+    </main>
