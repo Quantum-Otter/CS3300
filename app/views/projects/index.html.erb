@@ -36,30 +36,39 @@
                   <div class="col-md-4">
                     <div class="card mt-4">
                     <h5 class="card-title d-flex justify-content-center mt-3"> <%= project.title %> </h5>
-                    <p class="card-text d-flex text-center ml-3 mr-3"> <%= project.description %> </p>
+
+                    <div class="col-md-12">
+                    <p class="card-text"
+                    style="overflow: hidden; text-overflow: ellipsis; display: 
+                    -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
+                    <%= project.description %> </p>
+                    
+
                     <div class="d-flex justify-content-center mb-2">
                      <%= link_to 'Show', project , :class => 'btn btn-outline-primary'%>
-                       <div class="ml-3 mr-3"><%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-outline-warning' %>
+                     
+                     <% if user_signed_in? %>
+                       <div class="ml-3 mr-3"><%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-outline-success' %>
                        </div>
-                     <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger' %>
+                      <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger' %>
                     </div>
+                    <% end %>
                   </div>
                 </tr>
+
               <% end %>
           </thead>
         </table>
       <div>
         <hr>
-
-
-
-<% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-<% end %>
-      </div> <!-- /container -->
-      
     </main>
 
+    
+    <footer class="container">
+    <% if user_signed_in? %>
+    Logged in as <strong><%= current_user.email %></strong>.
+    <% end %>
+  </footer>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
