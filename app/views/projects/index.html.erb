@@ -1,36 +1,18 @@
-</body>
-
-
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-          <%= link_to 'Home', projects_path, :class => 'btn btn-dark'%>
-          </li>
-          <% if user_signed_in? %>
-          <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-dark'  %>
-          </li>
-          <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-dark'  %>
-          <%= link_to "Sign in", new_user_session_path, :class => 'btn btn-dark'  %>
-          <% end %>
-
-    </nav>
-
+<%= render 'navBar', project: @project %>
     <main role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
         <table> 
-        <tr> <h2 class="d-flex justify-content-center"> Robbie Hawkins </h2> </tr>
-        <tr> <p class="text-center"> A Sophmore at the University of Colorado in Colorado Springs Studying Computer Science </p> </tr>
+        <tr> <h1 class="d-flex justify-content-center text-info" 
+                style="font-family: 'Times New Roman', monospace;"> Portfolio </h1> </tr>
+
+        <br>
+        <tr> <h2 class="d-flex justify-content-center"
+                style="font-family: 'Times New Roman', monospace;"> Robbie Hawkins </h2> </tr>
+        
+                <tr> <p class="text-center"> A Sophmore at the University of Colorado in Colorado Springs Studying Computer Science </p> </tr>
         <tr> <p class="text-center"> Some of my interests include, Game Development, Artificial Intelligence, Machine Learning, and Virtual Reality </p>
       </table>
       <br>
@@ -52,7 +34,7 @@
               <% @projects.each do |project| %>
                 <tr>
                   <div class="col-md-4">
-                    <div class="card mt-6">
+                    <div class="card mt-4">
                     <h5 class="card-title d-flex justify-content-center mt-3"> <%= project.title %> </h5>
                     <p class="card-text d-flex text-center ml-3 mr-3"> <%= project.description %> </p>
                     <div class="d-flex justify-content-center mb-2">

@@ -1,19 +1,22 @@
+<%= render 'navBar', project: @project %>
+<br><br><br>
+
 <title> <%= @project.title%> </title>
 <p id="notice"><%= notice %></p>
 
-<div class="container text-center">
+<div class="container text-center bg-white text-muted">
   <p>
     <strong>Title:</strong>
     <%= @project.title %>
   </p>
 
   <p>
-    <strong>Description:</strong>
-    <%= @project.description %>
+    <div class="card col-md-12 bg-light">
+        <strong>Description:</strong>
+        <%= @project.description %>
   </p>
 
 
   <div class="container-fluid-nav text-center">
-    <a> <%= link_to 'Home', projects_path, :class => 'btn btn-primary'%> </a>
-    <a> <%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-warning' %> </a> 
+    <a> <%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-info' %> </a> 
   </div>

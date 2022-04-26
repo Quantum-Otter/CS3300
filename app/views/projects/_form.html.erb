@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field text-left">
     <a style="font-family: 'Arial', monospace;"> <%= form.label :title %> </a>
     <%= form.text_field :title, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field text-left">
     <a style="font-family: 'Arial', monospace;"> <%= form.label :description %> </a>
     <%= form.text_area :description, :class => 'form-control' %>
   </div>
 
   <div class="container-fluid-nav text-center mt-4">
-     <%= form.submit :class => 'btn btn-success' %>
+     <%= form.submit :class => 'btn btn-info' %>
   </div>
 <% end %>
